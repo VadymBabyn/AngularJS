@@ -1,0 +1,57 @@
+.active {
+  opacity: 1;
+}
+
+nav {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #444444;
+}
+
+ul {
+  display: flex;
+  gap: 40px;
+}
+.logo {
+  font-size: 22px;
+  color: white;
+  opacity: 1 !important;
+}
+
+a {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  opacity: 0.8;
+}
+
+
+/*.navbar {*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*  padding: 10px 20px;*/
+/*}*/
+
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.welcome-message {
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 20px;
+}

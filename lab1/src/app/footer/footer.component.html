@@ -1,0 +1,17 @@
+<footer class="footer fixed-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          &copy; 2023. Усі права захищені.
+        </div>
+        <div *ngFor="let menuItem of menuItems">
+          <span (click)="setActive(menuItem)">
+            <!-- {{ menuItem.label }} -->
+            <span *ngIf="!menuItem.active">{{ menuItem.label }}</span>
+            <span *ngIf="menuItem.active" class="active-menu-item">{{ menuItem.label }}</span>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </footer>

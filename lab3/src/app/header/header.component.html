@@ -1,0 +1,12 @@
+<nav>
+  <div><a class="logo" href="/home">Logo</a></div>
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+    <li><a routerLink="/more" routerLinkActive="active">More</a></li>
+  </ul>
+
+  <div [appRoleAvatar]="userRole" class="avatar"></div>
+</nav>
+
+  <div appWelcomeMessage [roleName]="u" class="welcome-message"></div>

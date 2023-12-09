@@ -1,0 +1,13 @@
+<div class="navigation">
+  <ul>
+    <div class="menu">
+   <ul>
+    <li *ngFor="let menuItem of menuItems">
+      <button [ngClass]="{'active': menuItem.active}" (click)="setActive(menuItem)">
+        {{menuItem.label}}
+      </button>
+    </li>
+  </ul>
+ </div>
+  </ul>
+</div>

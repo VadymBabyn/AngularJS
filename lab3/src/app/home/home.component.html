@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Home</h1>
+  <div class="box">
+    <h2>Role {{ currentRole }}</h2>
+    <a (click)="changeRole(UserRole.Admin)">Change on Admin</a>
+    <a (click)="changeRole(UserRole.Moderator)">Change on Moderstor</a>
+    <a (click)="changeRole(UserRole.User)">Change onty User</a>
+  </div>
+
+  <div *ngIf="currentRole === UserRole.Admin" >
+    <p> Hello admin
+      You have an access all pages </p>
+  </div>
+
+  <div *ngIf="currentRole === UserRole.Moderator">
+    <p> Hello moder
+      You have an access home and more pages</p>
+  </div>
+
+  <div *ngIf="currentRole === UserRole.User">
+    <p> Hello user
+      You have an access home and more pages</p>
+  </div>
+</div>
+

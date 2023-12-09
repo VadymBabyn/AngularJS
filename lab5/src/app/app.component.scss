@@ -1,0 +1,22 @@
+.container {
+  .nav {
+    padding: 20px 30px;
+    border-radius: 20px;
+    margin: 20px 0;
+  }
+  .form {
+    margin: 40px 0;
+    .close-btn {
+      position: absolute;
+      top: -10px;
+      right: -45px;
+    }
+
+    .subjects {
+      background-color: rgb(232, 236, 239);
+    }
+  }
+  .image {
+    width: 100%;
+  }
+}

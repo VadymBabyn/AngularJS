@@ -1,0 +1,79 @@
+
+<div class="container">
+    <div>
+      <div class="logo" ><img src="assets/images/logo.png" alt="Лого" height="150" [ngStyle]="{'width.px':200}" (click)="showGreeting(); toggleView()"></div>
+      <p *ngIf="showGreetingFlag" class="greeting">{{mainData}}</p>
+    </div>
+
+    <div class="user-info">
+      <img src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="user" width="60">
+      <p>User</p>
+    </div>
+  </div>
+
+<div class="content-container">
+  <ng-container *ngIf="currentState ==='empty';else listOrPhoto">
+  </ng-container>
+</div>
+
+<ng-template #listOrPhoto>
+    <ng-container *ngIf="currentState ==='list';else photo">
+        <ul>
+            <li *ngFor="let item of dataItems">
+                <div [ngSwitch]="item.type" class="item-container">
+                    <div *ngSwitchCase="'Тип 1'" class="item">
+                      <div class="content">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.subtitle }} - Рейтинг: {{ item.rating }}</p>
+                      </div>
+                    </div>
+
+                    <div *ngSwitchCase="'Тип 2'" class="item">
+                      <div class="content">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.subtitle }} - Рейтинг: {{ item.rating }}</p>
+                      </div>
+                    </div>
+                    <div *ngSwitchDefault>
+                        <p>Невідомий тип</p>
+                      </div>
+                    </div>
+                </li>
+              </ul>
+    </ng-container>
+    <ng-template #photo>
+        <ul>
+            <li *ngFor="let item of dataItems">
+                <div [ngSwitch]="item.type" class="item-container">
+                    <div *ngSwitchCase="'Тип 1'" class="item">
+                      <div class="image-container">
+                        <img [src]="item.imageSrc" alt="{{ item.title }}">
+                      </div>
+                      <div class="content">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.subtitle }}</p>
+                        <p class="rating">Рейтинг: {{ item.rating }}</p>
+                      </div>
+                    </div>
+
+                    <div *ngSwitchCase="'Тип 2'" class="item">
+                      <div class="image-container">
+                        <img [src]="item.imageSrc" alt="{{ item.title }}">
+                      </div>
+                      <div class="content">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.subtitle }}</p>
+                        <p class="rating">Рейтинг: {{ item.rating }}</p>
+                      </div>
+                    </div>
+
+                    <div *ngSwitchDefault class="item">
+                      <p>Невідомий тип</p>
+                    </div>
+                  </div>
+
+              </li>
+            </ul>
+    </ng-template>
+</ng-template>
+

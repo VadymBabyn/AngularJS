@@ -1,0 +1,7 @@
+<div class="container">
+  <ul>
+  <li *ngFor="let user of users">
+    <a [routerLink]="'/user/' + user.id" (click)="onSelectUser(user)">{{ user.name }} {{ user.lastname }}</a>
+  </li>
+</ul></div>
+

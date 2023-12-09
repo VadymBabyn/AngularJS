@@ -1,0 +1,53 @@
+.navigation {
+    width: 185px;
+    background-color: #791919;
+    padding: 10px;
+    position: fixed;
+    left:0;
+    top:170px;
+    height: 90%;
+    text-align: center;
+  }
+
+  .navigation ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .navigation li {
+    margin-bottom: 5px;
+  }
+
+  .navigation a {
+    text-decoration: none;
+    color: #000000;
+    display: block;
+    font-weight: 200;
+    font-size: 28px;
+  }
+
+  .navigation a.active {
+    font-weight: bold;
+  }
+
+  .menu button.active {
+    background-color: rgb(6, 6, 6);
+    color: #791919;
+    font-weight: bold;
+  }
+
+  .menu button {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 16px;
+    width: 150px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  li.active{
+    background-color: #791919;
+    color: #000000;
+  }
+

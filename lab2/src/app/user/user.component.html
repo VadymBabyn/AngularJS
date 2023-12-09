@@ -1,0 +1,5 @@
+
+<ul>
+    <li *ngFor="let user of users"><a [routerLink]="['/user', user.id]">{{user.name}} - {{user.lastname}}</a></li>
+</ul>
+

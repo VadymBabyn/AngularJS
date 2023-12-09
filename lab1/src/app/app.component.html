@@ -1,0 +1,10 @@
+<app-header></app-header>
+<app-left-nav-bar
+    [menuItems]="menuItems"
+    (setActiveEvent)="setActive($event)"
+></app-left-nav-bar>
+<app-footer
+    [menuItems]="menuItems"
+    (setActiveEvent)="setActive($event)"
+></app-footer>
+<router-outlet></router-outlet>
