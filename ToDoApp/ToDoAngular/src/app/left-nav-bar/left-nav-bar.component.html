@@ -1,0 +1,23 @@
+
+<div id="sidenav"[ngClass]="{ 'hidden': isNavBarHidden }">
+    <button id="menu-icon-btn" (click)="left_nav_barToggle()"> 
+        <img id="menu-icon-img" src="assets/icons/lines_menu.png" alt="menu">
+    </button>
+    <nav aria-label="Списки" role="navigation" class="sidebar-scroll">
+      <ul >
+        <li *ngFor="let item of items" (click)="selectItem(item)" [class.selected]="item === selectedItem" id="item.idLi">
+          <div id="mydaydiv">
+            <div id="snowflake-div">
+              <img id="snowflake-img" src="{{item.imgsrc}}" alt="menu">
+            </div>
+            <div id="text-myDay-div">
+              <span>{{ item.label }}</span>
+            </div>    
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- Основний контент або router-outlet -->
+  <router-outlet></router-outlet>
+  

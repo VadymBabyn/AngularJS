@@ -1,0 +1,31 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  #header
+  {
+    z-index: 0;
+    display: flex;
+    flex: 1 1 0px;
+    will-change: width;
+    overflow: hidden;
+    padding: 0;
+    margin-left: 0px;
+    margin-top: 58px;
+    text-rendering: optimizeLegibility;
+  }
+  #app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  app-header, app-body {
+    flex: 0 0 auto; 
+  }
+  
+  app-body {
+    flex: 1; 
+    overflow: auto; 
+  }

@@ -1,0 +1,84 @@
+#sidenav {
+    position:relative;
+    background-color: #474747;
+    margin-top: 0px;
+    width: 300px;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease; 
+    z-index: 1;
+  }
+  .hidden {
+    transform: translateX(-100%); 
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 15px;
+    cursor: pointer;
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
+  li:hover{
+    background-color: #4e4e4e;
+  }
+  #mydaydiv
+  {
+    cursor: pointer;
+    box-sizing: border-box;
+    user-select: none;
+    display: flex;
+    height: 20px;
+    align-items: center;
+    flex-direction: row;
+  }
+  #text-myDay-div
+  {
+    margin-left:15px;
+    line-height: 20px;
+  }
+
+  #snowflake-img
+  {
+    filter: grayscale(100%) invert(100%);
+    width: 20px;
+    height: 20px;
+  }
+  .selected {
+    background-color: #585858; 
+    color: white;
+  }
+  #menu-icon-btn {
+    position: relative;
+    cursor: pointer;
+    align-items: center;
+    margin-left: 22px;
+    margin-top: 30px;  
+    width: 30px;
+    height: 30px;
+    background-color: #474747;
+    box-shadow: none;
+    padding-block: 0px;
+    border-width:0px;
+  }
+  #menu-icon-btn:hover{
+    background-color: rgb(82, 82, 82);
+  }
+  
+  #menu-icon-btn img{
+    margin-top: 2px;
+    width: 15px;
+    height: 15px;
+  }
+
+  

@@ -1,0 +1,135 @@
+<div id="app"> 
+    <app-left-nav-bar id="leftBar"></app-left-nav-bar>
+    <span  id="span-container">
+        <div id="insideContainer">
+            <div id="TaskToolBar">                
+                <div id="TaskToolBar-Top">
+                    <div id="TaskToolBar-headline">
+                        <div class="TaskToolBar-titleContainer">
+                            <div class="TaskToolBar-titleItem">
+                                <h2 id="listTitle" tabindex = "-1">
+                                    <button id="under-menu-icon-btn" (click)="toggleLeftNavBar()">
+                                        <img id="menu-icon-img" src="assets/icons/lines_menu.png" alt="menu">
+                                    </button>
+                                    <img id="snowflake-imgBody" [src]="selectedItem ? selectedItem.imgsrc : 'assets/icons/snowflake.png'" alt="menu">
+                                    <span id="name-of-li-span">{{selectedItem ? selectedItem.label : 'My Day'}}</span>
+                                </h2>                  
+                            </div>                         
+                        </div>
+                        <div class="TaskToolBar-subline">
+                            <span id="todayDataHint">
+                                <span class="data">
+                                    {{ getFormattedDate() }}
+                                </span>
+                            </span>
+                        </div>                       
+                    </div>
+                    <div id="TaskToolBar-right">
+                        <div class="TaskToolBar-meta">
+                            <div class="TaskToolBar-action">
+                                <div class="tasktoolBar-item">
+                                    <div class="sorting-option">
+                                        <div>
+                                            <div class="soortingIcon_Btn">
+                                                <button id="sort-btn">
+                                                    <div class="toolbarBtnInnerr">
+                                                        <div class="toolbarBtnIcon">
+                                                            <img id = "sort-icon-img" src="assets/icons/sort_icon.png" alt="Sort">
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div >
+                        </div>
+                    </div>
+                </div>
+                <div id="TaskToolBar-children"></div>
+            </div>
+            <div class="flex-container">
+                <div id="flexBoxFix">
+                    <div id="mainBackGround">
+                        <span class="addToTop">
+                            <div class="TaskCreator">
+                                <div class="baseAddTask">
+                                    <button class="baseAddIcon" type ="button">
+                                        <img class ="inside-input-icon" src="assets/icons/plus_icon.png" alt="">
+                                    </button>
+                                    <span>
+
+                                    </span>
+                                    <input class="AddinputTaskCreation" type="text" maxlength="255" tabindex="0" autocomplete="off" placeholder="Add task" value >
+                                </div>
+                            </div>
+                            <div class="baseAddEntered">
+                                <div class="taskCreation-entrybar">
+                                    <div class="dateButton-container">
+                                        <button class="dateButton" aria-haspopup="true">
+                                            <div class="taskCreation-icon-calendar">
+                                                <div>
+                                                    <img class="TaskIcon-calendar"  src="assets/icons/calendar_icon.png" alt="">
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button aria-label="Add" class="baseAddBtn" tabindex="-1">
+                                    Add
+                                </button>
+                            </div>
+                        </span>
+                        <div class="Tasks">
+                            <div class="focusWrapped Tasks">
+                                <div class="chunkedComponentList">
+                                    <div class="chunkedScrollContained">
+                                        <div class="slice componentList">
+                                            <div role="none">
+                                                <div>
+                                                    <div role="treeitem" data-is-focusable="true" class="active inToday taskItem" tabindex="0">
+                                                        <div class="taskItem-body" aria-live="off" role="listitem">
+                                                            <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" aria-checked="false" tabindex="-1">
+                                                                <img class="TaskIcon" src="assets/icons/circle_icon.png" alt="">
+                                                            </span>
+                                                            <button class="TaskItemtitleWrapper">
+                                                                <span class="taskItemTitle">
+                                                                    <span>
+                                                                        <span>
+                                                                            My first Task
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                                <div class="metaDataInfo">
+                                                                    <span class="metaDataInfo-group">
+                                                                        <span class="taskItemInfo-title">
+                                                                            <span>My Day</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </button>
+                                                            <div>
+                                                                <div class="taskItem-body">
+                                                                    <span class="importanceButton" role="checkbox" aria-checked="false" aria-label="favorite Task">
+                                                                        <img class="TaskIconFavorite" src="assets/icons/star_favorite_icon.png" alt="">
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div role="presentation"> 
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>       
+        </div>   
+    </span>
+</div>  
