@@ -6,6 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { LeftNavBarComponent } from './left-nav-bar/left-nav-bar.component';
 import { BodyComponent } from './body/body.component';
 import { LeftNavBarService } from './service/left-nav-bar.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,10 @@ import { LeftNavBarService } from './service/left-nav-bar.service';
     BodyComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [LeftNavBarService],
   bootstrap: [AppComponent]

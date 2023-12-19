@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild,  Output, EventEmitter, OnInit  } from
 import { LeftNavBarComponent } from '../left-nav-bar/left-nav-bar.component';
 import { LeftNavBarItemLi } from '../model/left-nav-bar-item.model';
 import { LeftNavBarService } from '../service/left-nav-bar.service';
+import { TodoApiService } from '../service/todo-api.service';
 
 @Component({
   selector: 'app-body',
@@ -9,13 +10,42 @@ import { LeftNavBarService } from '../service/left-nav-bar.service';
   styleUrls: ['./body.component.css'],
 })
 export class BodyComponent implements OnInit{
+  taskName: string = '';
+
   leftNavBarItems: LeftNavBarItemLi[] = [];
+  
   selectedItem: LeftNavBarItemLi | null = null;
-  constructor(private leftNavBarService: LeftNavBarService) {}
+  
+  constructor(private leftNavBarService: LeftNavBarService, private apiService: TodoApiService) {}
 
   ngOnInit() {
     this.leftNavBarService.itemSelected.subscribe((item: LeftNavBarItemLi) => {
       this.selectedItem = item;
+    });
+    this.getDataFromApi();
+  }
+  
+  getDataFromApi() {
+    this.apiService.getData().subscribe(
+      data => {
+        try {
+          const parsedData = JSON.parse(data);
+          console.log(parsedData);
+        } catch (error) {
+          console.error('Failed to parse JSON:', error);
+        }
+      },
+      error => {
+        console.error('HTTP error:', error);
+      }
+    );
+  }
+
+  onAddButtonClick() {
+    // Викликати метод POST з використанням this.taskName
+    this.apiService.postData(this.taskName).subscribe(response => {
+      // Обробка відповіді (якщо потрібно)
+      console.log(response);
     });
   }
 

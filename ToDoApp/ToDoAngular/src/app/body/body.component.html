@@ -60,7 +60,7 @@
                                     <span>
 
                                     </span>
-                                    <input class="AddinputTaskCreation" type="text" maxlength="255" tabindex="0" autocomplete="off" placeholder="Add task" value >
+                                    <input [(ngModel)]="taskName" class="AddinputTaskCreation" type="text" maxlength="255" tabindex="0" autocomplete="off" placeholder="Add task" value >
                                 </div>
                             </div>
                             <div class="baseAddEntered">
@@ -75,7 +75,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <button aria-label="Add" class="baseAddBtn" tabindex="-1">
+                                <button aria-label="Add" class="baseAddBtn" tabindex="-1" (click)="onAddButtonClick()">
                                     Add
                                 </button>
                             </div>
