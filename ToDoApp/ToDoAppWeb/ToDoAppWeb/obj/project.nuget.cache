@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8Y0BX+GATWam9O8gO1mLYTaWq2tO03Zs78ydqScK8FynTc0H2x0vwAKLniM8FY5DJaZ7pF0RpYgcPGGr16hmLg==",
+  "dgSpecHash": "HD9v2va5KdMyO2xC2EWfY0H1yvw/NiGw8rtse3nbOm8/IPpDc0LSPfkoug+1peAIDlVOSk6JqNT3hK5qEalT0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vadim\\source\\repos\\ToDoAppWeb\\ToDoAppWeb\\ToDoAppWeb.csproj",
+  "projectFilePath": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\ToDoAppWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vadim\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\vadim\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

@@ -18,5 +18,11 @@ namespace ToDoAppWeb.Service
             task.root_table_username_id = 5;
             _taskRepository.AddTask(task);
         }
+        public List<Model.Task> getAllTasktoUser() 
+        {
+            List<Model.Task> tasklist = new List<Model.Task>();
+            tasklist = _taskRepository.GetAllTasks();
+            return tasklist;
+        }
     }
 }

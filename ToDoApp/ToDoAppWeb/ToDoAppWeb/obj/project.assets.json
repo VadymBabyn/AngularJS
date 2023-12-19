@@ -2655,11 +2655,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vadim\\source\\repos\\ToDoAppWeb\\ToDoAppWeb\\ToDoAppWeb.csproj",
+      "projectUniqueName": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\ToDoAppWeb.csproj",
       "projectName": "ToDoAppWeb",
-      "projectPath": "C:\\Users\\vadim\\source\\repos\\ToDoAppWeb\\ToDoAppWeb\\ToDoAppWeb.csproj",
+      "projectPath": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\ToDoAppWeb.csproj",
       "packagesPath": "C:\\Users\\vadim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vadim\\source\\repos\\ToDoAppWeb\\ToDoAppWeb\\obj\\",
+      "outputPath": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

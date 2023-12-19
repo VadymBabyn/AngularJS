@@ -1,8 +1,9 @@
-import { Component, ElementRef, ViewChild,  Output, EventEmitter, OnInit  } from '@angular/core';
+import { Component, ElementRef, ViewChild,  Output, EventEmitter, OnInit,ChangeDetectorRef } from '@angular/core';
 import { LeftNavBarComponent } from '../left-nav-bar/left-nav-bar.component';
 import { LeftNavBarItemLi } from '../model/left-nav-bar-item.model';
 import { LeftNavBarService } from '../service/left-nav-bar.service';
 import { TodoApiService } from '../service/todo-api.service';
+import { Task } from '../model/task.model';
 
 @Component({
   selector: 'app-body',
@@ -12,11 +13,13 @@ import { TodoApiService } from '../service/todo-api.service';
 export class BodyComponent implements OnInit{
   taskName: string = '';
 
+  TaskList: Task[] = [];
+
   leftNavBarItems: LeftNavBarItemLi[] = [];
   
   selectedItem: LeftNavBarItemLi | null = null;
   
-  constructor(private leftNavBarService: LeftNavBarService, private apiService: TodoApiService) {}
+  constructor(private leftNavBarService: LeftNavBarService, private apiService: TodoApiService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.leftNavBarService.itemSelected.subscribe((item: LeftNavBarItemLi) => {
@@ -29,8 +32,8 @@ export class BodyComponent implements OnInit{
     this.apiService.getData().subscribe(
       data => {
         try {
-          const parsedData = JSON.parse(data);
-          console.log(parsedData);
+          this.TaskList = data;
+          console.log(this.TaskList[0].completed);
         } catch (error) {
           console.error('Failed to parse JSON:', error);
         }
@@ -45,8 +48,9 @@ export class BodyComponent implements OnInit{
     // Викликати метод POST з використанням this.taskName
     this.apiService.postData(this.taskName).subscribe(response => {
       // Обробка відповіді (якщо потрібно)
-      console.log(response);
-    });
+      this.getDataFromApi();
+    }); 
+    
   }
 
   toggleLeftNavBar() {

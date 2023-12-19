@@ -18,13 +18,21 @@ namespace ToDoAppWeb.Controller
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("Get working");
+            List<Model.Task> tasksList = _taskService.getAllTasktoUser();
+            if (tasksList != null)
+            {
+                return Ok(tasksList);
+            }
+            else 
+            {
+                return BadRequest();
+            }                
         }
         [HttpPost]
         public IActionResult Post(Model.Task taskName)
         {
             _taskService.addTask(taskName.taskName);
-            return Ok("Task added in DB");
+            return Ok(200);
         }
     }
 }

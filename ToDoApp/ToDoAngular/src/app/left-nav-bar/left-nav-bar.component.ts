@@ -54,7 +54,4 @@ export class LeftNavBarComponent {
     this.leftNavBarService.selectedItem = item;
     this.leftNavBarService.itemSelected.emit(item);
   }
-  myDayli_click()
-  {
-  }
 }

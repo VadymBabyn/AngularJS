@@ -85,41 +85,99 @@
                                 <div class="chunkedComponentList">
                                     <div class="chunkedScrollContained">
                                         <div class="slice componentList">
-                                            <div role="none">
-                                                <div>
-                                                    <div role="treeitem" data-is-focusable="true" class="active inToday taskItem" tabindex="0">
-                                                        <div class="taskItem-body" aria-live="off" role="listitem">
-                                                            <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" aria-checked="false" tabindex="-1">
-                                                                <img class="TaskIcon" src="assets/icons/circle_icon.png" alt="">
-                                                            </span>
-                                                            <button class="TaskItemtitleWrapper">
-                                                                <span class="taskItemTitle">
-                                                                    <span>
-                                                                        <span>
-                                                                            My first Task
-                                                                        </span>
-                                                                    </span>
+                                            <div *ngFor="let item of TaskList">
+                                                <div role="none" *ngIf="!item.completed">
+                                                    <div>
+                                                        <div role="treeitem" data-is-focusable="true" class="active inToday taskItem" tabindex="-1">
+                                                            <div class="taskItem-body" aria-live="off" role="listitem">
+                                                                <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" aria-checked="false" tabindex="-1">
+                                                                    <img class="TaskIcon" src="assets/icons/circle_icon.png" alt="">
                                                                 </span>
-                                                                <div class="metaDataInfo">
-                                                                    <span class="metaDataInfo-group">
-                                                                        <span class="taskItemInfo-title">
-                                                                            <span>My Day</span>
+                                                                <button class="TaskItemtitleWrapper">
+                                                                    <span class="taskItemTitle">
+                                                                        <span>
+                                                                            <span>
+                                                                                {{item.taskName}}
+                                                                            </span>
                                                                         </span>
                                                                     </span>
-                                                                </div>
-                                                            </button>
-                                                            <div>
-                                                                <div class="taskItem-body">
-                                                                    <span class="importanceButton" role="checkbox" aria-checked="false" aria-label="favorite Task">
-                                                                        <img class="TaskIconFavorite" src="assets/icons/star_favorite_icon.png" alt="">
-                                                                    </span>
+                                                                    <div class="metaDataInfo">
+                                                                        <span class="metaDataInfo-group">
+                                                                            <span class="taskItemInfo-title">
+                                                                                <span>My Day</span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </div>
+                                                                </button>
+                                                                <div>
+                                                                    <div class="taskItem-body">
+                                                                        <span class="importanceButton" role="checkbox" aria-checked="false" aria-label="favorite Task">
+                                                                            <img class="TaskIconFavorite" src="assets/icons/star_favorite_icon.png" alt="">
+                                                                        </span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div role="presentation"> 
+                                                    <div role="presentation"> 
 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="TaskColapsed">
+                                                <div class="TaskCardHeader">
+                                                    <div class="TaskCardHeader-action">
+                                                        <button class="openCloseArrow">
+                                                            <img class="imgRotation" src="assets/icons/star_favorite_icon.png" alt="">
+                                                        </button>
+                                                    </div>
+                                                    <div class="TaskCard-labels">
+                                                        <h3 class="taskCard-label" id="completed-task-label">
+                                                            <span>Completed Task</span>
+                                                        </h3>
+                                                        <h3 class="taskCard-sublabel">
+                                                            {{TaskList.length}}
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div *ngFor="let item of TaskList">
+                                                <div role="none" *ngIf="item.completed">
+                                                    <div>
+                                                        <div role="treeitem" data-is-focusable="true" class="active inToday taskItem" tabindex="-1">
+                                                            <div class="taskItem-body" aria-live="off" role="listitem">
+                                                                <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" aria-checked="false" tabindex="-1">
+                                                                    <img class="TaskIconTrue" src="assets/icons/circle_selected.png" alt="">
+                                                                </span>
+                                                                <button class="TaskItemtitleWrapper">
+                                                                    <span class="taskItemTitle">
+                                                                        <span>
+                                                                            <span>
+                                                                                {{item.taskName}}
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                    <div class="metaDataInfo">
+                                                                        <span class="metaDataInfo-group">
+                                                                            <span class="taskItemInfo-title">
+                                                                                <span>My Day</span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </div>
+                                                                </button>
+                                                                <div>
+                                                                    <div class="taskItem-body">
+                                                                        <span class="importanceButton" role="checkbox" aria-checked="false" aria-label="favorite Task">
+                                                                            <img class="TaskIconFavorite" src="assets/icons/star_favorite_icon.png" alt="">
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div role="presentation"> 
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

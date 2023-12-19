@@ -5,6 +5,8 @@ namespace ToDoAppWeb.Model
     public class Task
     {
         [Key]
+        public int Task_id { get; set; }
+        [Required]
         public int root_table_username_id { get; set; }
         
         [Required]
@@ -23,12 +25,13 @@ namespace ToDoAppWeb.Model
         {
 
         }
-        public Task(int id, string taskName, bool completed, bool favorite, DateTime dataTimeCreateTask, DateTime dataTimeEndTask, DateTime dataTimeToCompleteTask)
+        public Task(int Task_id, int id, string taskName, bool completed, bool favorite, DateTime dataTimeCreateTask, DateTime dataTimeEndTask, DateTime dataTimeToCompleteTask)
         {
-            root_table_username_id = id;
+            this.Task_id = Task_id;
+            this.root_table_username_id = id;
             this.taskName = taskName;
             this.completed = completed;
-            Favorite = favorite;
+            this.Favorite = favorite;
             this.dataTimeCreateTask = dataTimeCreateTask;
             this.dataTimeEndTask = dataTimeEndTask;
             this.dataTimeToCompleteTask = dataTimeToCompleteTask;
