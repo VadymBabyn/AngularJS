@@ -8,19 +8,25 @@ import { BodyComponent } from './body/body.component';
 import { LeftNavBarService } from './service/left-nav-bar.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FilterTasksPipe } from './pipe/filter-tasks.pipe';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LeftNavBarComponent,
-    BodyComponent
+    BodyComponent,
+    FilterTasksPipe
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BsDropdownModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [LeftNavBarService],
   bootstrap: [AppComponent]

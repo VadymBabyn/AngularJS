@@ -5,6 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+
 using ToDoAppWeb.Repository;
 using ToDoAppWeb.Service;
 
@@ -33,8 +36,10 @@ namespace ToDoAppWeb
 
             services.AddDbContext<AppDbContext>(options =>
                 options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
-
+            
             services.AddScoped<TaskRepository>();
+            services.AddScoped<GenericRepository<Model.Task>>();
+            //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<TaskService>();
         }
 

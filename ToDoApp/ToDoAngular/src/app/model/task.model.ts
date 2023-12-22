@@ -1,5 +1,5 @@
 export interface Task {
-    Task_id:number;
+    task_id:number;
 
     root_table_username_id:number;
         
@@ -7,11 +7,13 @@ export interface Task {
 
     completed:boolean;
 
-    Favorite: boolean;
+    favorite: boolean;
 
     dataTimeCreateTask: Date;
 
     dataTimeEndTask: Date;
 
     dataTimeToCompleteTask: Date;
+    
+    category_category_id:number;
 }

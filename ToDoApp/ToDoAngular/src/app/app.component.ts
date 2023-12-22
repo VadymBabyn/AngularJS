@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ToDoAngular';
-
+  
   performSearch()
   {
     console.log("Searching")

@@ -19,7 +19,9 @@ export class BodyComponent implements OnInit{
   
   selectedItem: LeftNavBarItemLi | null = null;
   
-  constructor(private leftNavBarService: LeftNavBarService, private apiService: TodoApiService, private cdr: ChangeDetectorRef) {}
+  categories: number[] = [1, 2, 3, 4, 5];
+  
+  constructor(private leftNavBarService: LeftNavBarService, private apiService: TodoApiService) {}
 
   ngOnInit() {
     this.leftNavBarService.itemSelected.subscribe((item: LeftNavBarItemLi) => {
@@ -45,12 +47,30 @@ export class BodyComponent implements OnInit{
   }
 
   onAddButtonClick() {
-    // Викликати метод POST з використанням this.taskName
-    this.apiService.postData(this.taskName).subscribe(response => {
+    const today = new Date();
+    this.apiService.postData(this.taskName, today).subscribe(response => {
       // Обробка відповіді (якщо потрібно)
       this.getDataFromApi();
     }); 
     
+  }
+  taskIsCompleted(Task_Item:Task)
+  {
+    const today = new Date();
+    Task_Item.completed=!Task_Item.completed;
+    Task_Item.dataTimeEndTask = today;
+    this.apiService.updateTask(Task_Item.task_id, Task_Item).subscribe(response => {
+      // Обробка відповіді (якщо потрібно)
+      this.getDataFromApi();
+    }); 
+  }
+  taskIsFavorite(Task_Item:Task)
+  {
+    Task_Item.favorite=!Task_Item.favorite;
+    this.apiService.updateTask(Task_Item.task_id, Task_Item).subscribe(response => {
+      // Обробка відповіді (якщо потрібно)
+      this.getDataFromApi();
+    }); 
   }
 
   toggleLeftNavBar() {
@@ -73,6 +93,7 @@ export class BodyComponent implements OnInit{
       console.log("display changed")
     }
   }
+  
   getFormattedDate(): string {
     const options = { weekday: "long", day: 'short', month: 'long' };
     const today = new Date();

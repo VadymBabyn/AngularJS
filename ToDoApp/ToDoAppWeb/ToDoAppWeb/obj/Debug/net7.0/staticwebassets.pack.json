@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ToDoAppWeb.bundle.scp.css",
-      "PackagePath": "staticwebassets\\ToDoAppWeb.bundle.scp.css"
-    },
-    {
       "Id": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

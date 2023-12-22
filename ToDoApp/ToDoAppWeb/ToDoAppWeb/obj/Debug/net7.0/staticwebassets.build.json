@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nkya7QZFnN//GGzGQnG3DnVgSCczccYYT8YrvcUadOA=",
+  "Hash": "ET/4/68iBDMartOX3HnCxjnH0DKlaE/bl+RFq/hSDEo=",
   "Source": "ToDoAppWeb",
   "BasePath": "_content/ToDoAppWeb",
   "Mode": "Default",
@@ -16,40 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\obj\\Debug\\net7.0\\scopedcss\\bundle\\ToDoAppWeb.styles.css",
-      "SourceId": "ToDoAppWeb",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/ToDoAppWeb",
-      "RelativePath": "ToDoAppWeb.styles.css",
-      "AssetKind": "All",
-      "AssetMode": "CurrentProject",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ApplicationBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\obj\\Debug\\net7.0\\scopedcss\\bundle\\ToDoAppWeb.styles.css"
-    },
-    {
-      "Identity": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ToDoAppWeb.bundle.scp.css",
-      "SourceId": "ToDoAppWeb",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/ToDoAppWeb",
-      "RelativePath": "ToDoAppWeb.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ToDoAppWeb.bundle.scp.css"
-    },
     {
       "Identity": "C:\\Users\\vadim\\Desktop\\AngularJS\\ToDoApp\\ToDoAppWeb\\ToDoAppWeb\\wwwroot\\css\\site.css",
       "SourceId": "ToDoAppWeb",

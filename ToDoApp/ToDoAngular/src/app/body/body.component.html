@@ -85,12 +85,12 @@
                                 <div class="chunkedComponentList">
                                     <div class="chunkedScrollContained">
                                         <div class="slice componentList">
-                                            <div *ngFor="let item of TaskList">
+                                            <div *ngFor="let item of TaskList | filterTasks:selectedItem?.id">
                                                 <div role="none" *ngIf="!item.completed">
                                                     <div>
                                                         <div role="treeitem" data-is-focusable="true" class="active inToday taskItem" tabindex="-1">
                                                             <div class="taskItem-body" aria-live="off" role="listitem">
-                                                                <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" aria-checked="false" tabindex="-1">
+                                                                <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" aria-checked="false" tabindex="-1" (click)="taskIsCompleted(item)">
                                                                     <img class="TaskIcon" src="assets/icons/circle_icon.png" alt="">
                                                                 </span>
                                                                 <button class="TaskItemtitleWrapper">
@@ -104,15 +104,20 @@
                                                                     <div class="metaDataInfo">
                                                                         <span class="metaDataInfo-group">
                                                                             <span class="taskItemInfo-title">
-                                                                                <span>My Day</span>
+                                                                                <span>{{selectedItem?.label}}</span>
                                                                             </span>
                                                                         </span>
                                                                     </div>
                                                                 </button>
                                                                 <div>
                                                                     <div class="taskItem-body">
-                                                                        <span class="importanceButton" role="checkbox" aria-checked="false" aria-label="favorite Task">
-                                                                            <img class="TaskIconFavorite" src="assets/icons/star_favorite_icon.png" alt="">
+                                                                        <span class="importanceButton" role="checkbox" aria-checked="false" aria-label="favorite Task" (click)="taskIsFavorite(item)">
+                                                                            <ng-container *ngIf="item.favorite; else notFavorite">
+                                                                                <img class="TaskIconFavorite" src="assets/icons/round-star.png" alt="">
+                                                                            </ng-container>
+                                                                            <ng-template #notFavorite>
+                                                                                <img class="TaskIconFavorite" src="assets/icons/star_favorite_icon.png" alt="">
+                                                                            </ng-template>
                                                                         </span>
                                                                     </div>
                                                                 </div>
@@ -141,44 +146,51 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div *ngFor="let item of TaskList">
-                                                <div role="none" *ngIf="item.completed">
-                                                    <div>
-                                                        <div role="treeitem" data-is-focusable="true" class="active inToday taskItem" tabindex="-1">
-                                                            <div class="taskItem-body" aria-live="off" role="listitem">
-                                                                <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" aria-checked="false" tabindex="-1">
-                                                                    <img class="TaskIconTrue" src="assets/icons/circle_selected.png" alt="">
-                                                                </span>
-                                                                <button class="TaskItemtitleWrapper">
-                                                                    <span class="taskItemTitle">
-                                                                        <span>
-                                                                            <span>
-                                                                                {{item.taskName}}
-                                                                            </span>
-                                                                        </span>
+                                            <div *ngFor="let item of TaskList | filterTasks:selectedItem?.id">
+                                                <ng-container *ngIf="item.completed">
+                                                    <div role="none">
+                                                        <div>
+                                                            <div role="treeitem" data-is-focusable="true" class="active inToday taskItem" tabindex="-1">
+                                                                <div class="taskItem-body" aria-live="off" role="listitem">
+                                                                    <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" aria-checked="false" tabindex="-1"  (click)="taskIsCompleted(item)">
+                                                                        <img class="TaskIconTrue" src="assets/icons/circle_selected.png" alt="">
                                                                     </span>
-                                                                    <div class="metaDataInfo">
-                                                                        <span class="metaDataInfo-group">
-                                                                            <span class="taskItemInfo-title">
-                                                                                <span>My Day</span>
+                                                                    <button class="TaskItemtitleWrapper">
+                                                                        <span class="taskItemTitle">
+                                                                            <span>
+                                                                                <span>
+                                                                                    {{item.taskName}}
+                                                                                </span>
                                                                             </span>
                                                                         </span>
-                                                                    </div>
-                                                                </button>
-                                                                <div>
-                                                                    <div class="taskItem-body">
-                                                                        <span class="importanceButton" role="checkbox" aria-checked="false" aria-label="favorite Task">
-                                                                            <img class="TaskIconFavorite" src="assets/icons/star_favorite_icon.png" alt="">
-                                                                        </span>
+                                                                        <div class="metaDataInfo">
+                                                                            <span class="metaDataInfo-group">
+                                                                                <span class="taskItemInfo-title">
+                                                                                    <span>{{selectedItem?.label}}</span>
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </button>
+                                                                    <div>
+                                                                        <div class="taskItem-body">
+                                                                            <span class="importanceButton" role="checkbox" aria-checked="false" aria-label="favorite Task" (click)="taskIsFavorite(item)">
+                                                                                <ng-container *ngIf="item.favorite; else notFavorite">
+                                                                                    <img class="TaskIconFavorite" src="assets/icons/round-star.png" alt="">
+                                                                                </ng-container>
+                                                                                <ng-template #notFavorite>
+                                                                                    <img class="TaskIconFavorite" src="assets/icons/star_favorite_icon.png" alt="">
+                                                                                </ng-template>
+                                                                            </span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div role="presentation"> 
+                                                        <div role="presentation"> 
 
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </ng-container>
                                             </div>
                                         </div>
                                     </div>

@@ -108,8 +108,6 @@ C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\ToDoAppWeb.AssemblyInfo.cs
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\ToDoAppWeb.csproj.CoreCompileInputs.cache
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\ToDoAppWeb.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\ToDoAppWeb.RazorAssemblyInfo.cache
-C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\ToDoAppWeb.RazorAssemblyInfo.cs
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\staticwebassets\msbuild.ToDoAppWeb.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\staticwebassets\msbuild.build.ToDoAppWeb.props
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.ToDoAppWeb.props
@@ -117,9 +115,7 @@ C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\staticwebassets.pack.json
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\staticwebassets.development.json
-C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\scopedcss\bundle\ToDoAppWeb.styles.css
-C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\scopedcss\projectbundle\ToDoAppWeb.bundle.scp.css
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\ToDoAppWeb.csproj.CopyComplete
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\ToDoAppWeb.dll
 C:\Users\vadim\Desktop\AngularJS\ToDoApp\ToDoAppWeb\ToDoAppWeb\obj\Debug\net7.0\refint\ToDoAppWeb.dll

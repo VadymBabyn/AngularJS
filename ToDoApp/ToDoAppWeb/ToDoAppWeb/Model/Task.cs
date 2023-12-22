@@ -21,11 +21,12 @@ namespace ToDoAppWeb.Model
         public DateTime dataTimeEndTask { get; set; }
 
         public DateTime dataTimeToCompleteTask { get; set; }
+        public int category_category_id { get; set; }
         public Task() 
         {
 
         }
-        public Task(int Task_id, int id, string taskName, bool completed, bool favorite, DateTime dataTimeCreateTask, DateTime dataTimeEndTask, DateTime dataTimeToCompleteTask)
+        public Task(int Task_id, int id, string taskName, bool completed, bool favorite, DateTime dataTimeCreateTask, DateTime dataTimeEndTask, DateTime dataTimeToCompleteTask, int category_category_id)
         {
             this.Task_id = Task_id;
             this.root_table_username_id = id;
@@ -35,6 +36,7 @@ namespace ToDoAppWeb.Model
             this.dataTimeCreateTask = dataTimeCreateTask;
             this.dataTimeEndTask = dataTimeEndTask;
             this.dataTimeToCompleteTask = dataTimeToCompleteTask;
+            this.category_category_id = category_category_id;
         }
     }
 }

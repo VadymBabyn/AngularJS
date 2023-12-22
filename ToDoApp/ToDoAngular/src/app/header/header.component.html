@@ -1,4 +1,4 @@
-<div id="header" role = "banner">
+  <div id="header" role = "banner">
     <div id="todo">To Do</div>
     <div id="search-container">
       <input id="search-field" type="text" placeholder="Пошук">
@@ -6,8 +6,38 @@
         <img id="search-icon-img" src="assets/icons/search-icon.png" alt="Пошук">
       </button>
     </div>
-    <button id="profile-button" (click)="profile_info()"> 
-     <img id="profile-icon-img" src="assets/icons/ui_user_profile.png" alt="Profile">
-    
+    <button id="profile-button" (click)="openModal(authModalTemplate)" [routerLink]="['#authModal']"> 
+     <img id="profile-icon-img" src="assets/icons/ui_user_profile.png" alt="Profile">  
     </button>
   </div>
+  <ng-template #authModalTemplate>
+    <div class="modal-container">
+      <div class="modal fade" id="authModal" tabindex="-1" role="dialog" aria-labelledby="authModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="authModalLabel">Log in or Register</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- Форма для входу або реєстрації -->
+              <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" id="authForm">
+                <div class="form-group">
+                  <label for="loginInput">Log in</label>
+                  <input type="text" class="form-control" id="loginInput" placeholder="Введіть логін">
+                </div>
+                <div class="form-group">
+                  <label for="passwordInput">Password</label>
+                  <input type="password" class="form-control" id="passwordInput" placeholder="Введіть пароль">
+                </div>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Log in</button>
+                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Register</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</ng-template>
