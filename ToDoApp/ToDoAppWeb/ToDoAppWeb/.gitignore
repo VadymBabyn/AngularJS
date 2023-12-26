@@ -177,7 +177,7 @@ $RECYCLE.BIN/
 
 # Ігнорувати всі папки та файли в папці "obj"
 obj/
-
+bin/
 # Ігнорувати всі папки та файли в папці "ToDoAppWeb/obj"
 ToDoAppWeb/obj/
 
