@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from './model/task.model';
 
 @Component({
   selector: 'app-root',
@@ -6,14 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ToDoAngular';
-  
-  performSearch()
-  {
-    console.log("Searching")
-  }
-  profile_info()
-  {
-    console.log("opened info profile")
-  }
+  title = 'ToDoApp';
 }

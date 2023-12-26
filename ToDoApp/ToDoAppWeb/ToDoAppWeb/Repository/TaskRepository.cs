@@ -14,36 +14,13 @@ namespace ToDoAppWeb.Repository
             _context = context;
         }
 
-        public List<Model.Task> GetAllTasks()
+        public IQueryable<Model.Task> GetAllTasksByUserId(int userId)
         {
-            return _context.tasktable.ToList();
+            return _context.tasktable.Where(task => task.root_table_username_id == userId);
         }
-
         public Model.Task GetTaskById(int taskId)
         {
             return _context.tasktable.Find(taskId);
-        }
-
-        public void AddTask(Model.Task task)
-        {
-            _context.tasktable.Add(task);
-            _context.SaveChanges();
-        }
-
-        public void UpdateTask(Model.Task task)
-        {
-            _context.Entry(task).State = EntityState.Modified;
-            _context.SaveChanges();
-        }
-
-        public void DeleteTask(int taskId)
-        {
-            var task = _context.tasktable.Find(taskId);
-            if (task != null)
-            {
-                _context.tasktable.Remove(task);
-                _context.SaveChanges();
-            }
         }
     }
 }

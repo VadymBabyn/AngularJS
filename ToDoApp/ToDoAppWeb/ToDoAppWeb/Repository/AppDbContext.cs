@@ -10,7 +10,8 @@ namespace ToDoAppWeb.Repository
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
-
+        public DbSet<categoryTable> category { get; set; }
+        public DbSet<userTable> root_table { get; set; }
         public DbSet<Model.Task> tasktable { get; set; }
     }
 }

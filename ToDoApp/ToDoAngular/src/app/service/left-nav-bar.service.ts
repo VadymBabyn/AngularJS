@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter} from '@angular/core';
 import { LeftNavBarItemLi } from '../model/left-nav-bar-item.model';
+import { LeftNavBarCategory } from '../model/category.model';
 
 
 @Injectable({
@@ -17,6 +18,18 @@ export class LeftNavBarService {
     set selectedItem(item: LeftNavBarItemLi | null) {
         this._selectedItem = item;
         this.itemSelected.emit(item);
+    }
+
+    private _selectedCategory: LeftNavBarCategory | null = null;
+    CategorySelected = new EventEmitter<LeftNavBarCategory | null>();
+
+    get selectedCategory(): LeftNavBarCategory | null {
+        return this._selectedCategory;
+    }
+
+    set selectedCategory(item: LeftNavBarCategory | null) {
+        this._selectedCategory = item;
+        this.CategorySelected.emit(item);
     }
 
     items: LeftNavBarItemLi[] = [

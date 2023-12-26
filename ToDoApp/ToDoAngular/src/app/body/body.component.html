@@ -12,7 +12,7 @@
                                         <img id="menu-icon-img" src="assets/icons/lines_menu.png" alt="menu">
                                     </button>
                                     <img id="snowflake-imgBody" [src]="selectedItem ? selectedItem.imgsrc : 'assets/icons/snowflake.png'" alt="menu">
-                                    <span id="name-of-li-span">{{selectedItem ? selectedItem.label : 'My Day'}}</span>
+                                    <span id="name-of-li-span">{{selectedItem ? selectedItem.label : selectedCategory ? selectedCategory.category_name : 'My Day'}}</span>
                                 </h2>                  
                             </div>                         
                         </div>
@@ -31,13 +31,13 @@
                                     <div class="sorting-option">
                                         <div>
                                             <div class="soortingIcon_Btn">
-                                                <button id="sort-btn">
+                                                <!-- <button id="sort-btn">
                                                     <div class="toolbarBtnInnerr">
                                                         <div class="toolbarBtnIcon">
                                                             <img id = "sort-icon-img" src="assets/icons/sort_icon.png" alt="Sort">
                                                         </div>
                                                     </div>
-                                                </button>
+                                                </button>                                    Sort Button logic is not implemented now-->
                                             </div>
                                         </div>
                                     </div>
@@ -60,13 +60,14 @@
                                     <span>
 
                                     </span>
-                                    <input [(ngModel)]="taskName" class="AddinputTaskCreation" type="text" maxlength="255" tabindex="0" autocomplete="off" placeholder="Add task" value >
+                                    <input [(ngModel)]="taskName" class="AddinputTaskCreation" type="text" maxlength="255" tabindex="0" 
+                                        autocomplete="off" placeholder="Add task" value (keyup.enter)="onAddButtonClick()">
                                 </div>
                             </div>
                             <div class="baseAddEntered">
                                 <div class="taskCreation-entrybar">
                                     <div class="dateButton-container">
-                                        <button class="dateButton" aria-haspopup="true">
+                                        <button (click)="startWithData()" class="dateButton" aria-haspopup="true">
                                             <div class="taskCreation-icon-calendar">
                                                 <div>
                                                     <img class="TaskIcon-calendar"  src="assets/icons/calendar_icon.png" alt="">
@@ -74,8 +75,21 @@
                                             </div>
                                         </button>
                                     </div>
+                                    <div class="dateButton-container" *ngIf="showButtons">
+                                        <button (click)="TaskOnTomorrow()" [class.selected]="ButtonOnTommorow" [class.baseAddBtnData]="!ButtonOnTommorow">tomorrow</button>
+                                        <button (click)="TaskOnAfterTomorrow()" [class.selected]="ButtonOnAfterTommorow" [class.baseAddBtnData]="!ButtonOnAfterTommorow">after tomorrow</button>
+                                        <button (click)="showDatePicker()" [class.selected]="ButtonOnTakeData" [class.baseAddBtnData]="!ButtonOnTakeData">select a date</button>                   
+                                    </div>
+                                    
                                 </div>
-                                <button aria-label="Add" class="baseAddBtn" tabindex="-1" (click)="onAddButtonClick()">
+                                <div *ngIf="showDatePickers" class="input-group date" data-provide="datepicker" data-date-format="yyyy-mm-dd 23:59:59" 
+                                    [attr.data-date-start-date]="today | date: 'yyyy-MM-dd'" data-date-end-date="2099-12-31">
+                                            <input #myInput  type="text" class="form-control">
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
+                                <button aria-label="Add" class="baseAddBtn" tabindex="-1"  (click)="onAddButtonClick()">
                                     Add
                                 </button>
                             </div>
@@ -85,30 +99,41 @@
                                 <div class="chunkedComponentList">
                                     <div class="chunkedScrollContained">
                                         <div class="slice componentList">
-                                            <div *ngFor="let item of TaskList | filterTasks:selectedItem?.id">
+                                            <div *ngFor="let item of TaskList | filterTasks:(selectedItem?.id):(selectedCategory?.category_id):(searchTextForPipe)">
                                                 <div role="none" *ngIf="!item.completed">
                                                     <div>
-                                                        <div role="treeitem" data-is-focusable="true" class="active inToday taskItem" tabindex="-1">
-                                                            <div class="taskItem-body" aria-live="off" role="listitem">
-                                                                <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" aria-checked="false" tabindex="-1" (click)="taskIsCompleted(item)">
+                                                        <div  role="treeitem" data-is-focusable="true" class="active inToday taskItem" tabindex="-1">
+                                                            <div (contextmenu)="showContextMenu($event, item)" class="taskItem-body" aria-live="off" role="listitem">
+                                                                <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" 
+                                                                    aria-checked="false" tabindex="-1" (click)="taskIsCompleted(item)">
                                                                     <img class="TaskIcon" src="assets/icons/circle_icon.png" alt="">
                                                                 </span>
-                                                                <button class="TaskItemtitleWrapper">
-                                                                    <span class="taskItemTitle">
-                                                                        <span>
+                                                                <ng-container *ngIf="editingTaskId !== item.task_id; else editMode">
+                                                                    <button class="TaskItemtitleWrapper">
+                                                                        <span class="taskItemTitle">
                                                                             <span>
-                                                                                {{item.taskName}}
+                                                                                <span>
+                                                                                    {{item.taskName}}
+                                                                                </span>
                                                                             </span>
                                                                         </span>
-                                                                    </span>
-                                                                    <div class="metaDataInfo">
-                                                                        <span class="metaDataInfo-group">
-                                                                            <span class="taskItemInfo-title">
-                                                                                <span>{{selectedItem?.label}}</span>
+                                                                        <div class="metaDataInfo">
+                                                                            <span class="metaDataInfo-group">
+                                                                                    <span class="taskItemInfo-title">
+                                                                                        <span>{{selectedItem ? selectedItem.label: selectedCategory ? selectedCategory.category_name:'' }}</span>
+                                                                                    </span> 
+                                                                                <ng-container *ngIf="selectedItem?.id === 3">
+                                                                                    <span class="dataTime">
+                                                                                        {{ getFormattedDate(item.dataTimeToCompleteTask) }}
+                                                                                    </span>
+                                                                                </ng-container>
                                                                             </span>
-                                                                        </span>
-                                                                    </div>
-                                                                </button>
+                                                                        </div>
+                                                                    </button>
+                                                                </ng-container>
+                                                                <ng-template #editMode>
+                                                                    <input class="taskEditInput" type="text" [(ngModel)]="item.taskName" (keyup.enter)="saveTaskChanges(item)" />
+                                                                </ng-template>
                                                                 <div>
                                                                     <div class="taskItem-body">
                                                                         <span class="importanceButton" role="checkbox" aria-checked="false" aria-label="favorite Task" (click)="taskIsFavorite(item)">
@@ -141,39 +166,51 @@
                                                             <span>Completed Task</span>
                                                         </h3>
                                                         <h3 class="taskCard-sublabel">
-                                                            {{TaskList.length}}
+                                                            {{countCompleted}}
                                                         </h3>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div *ngFor="let item of TaskList | filterTasks:selectedItem?.id">
+                                            <div *ngFor="let item of TaskList | filterTasks:(selectedItem?.id):(selectedCategory?.category_id)">
                                                 <ng-container *ngIf="item.completed">
                                                     <div role="none">
                                                         <div>
-                                                            <div role="treeitem" data-is-focusable="true" class="active inToday taskItem" tabindex="-1">
-                                                                <div class="taskItem-body" aria-live="off" role="listitem">
-                                                                    <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" aria-checked="false" tabindex="-1"  (click)="taskIsCompleted(item)">
+                                                            <div  role="treeitem" data-is-focusable="true" class="active inToday taskItem" tabindex="-1">
+                                                                <div (contextmenu)="showContextMenu($event, item)" class="taskItem-body" aria-live="off" role="listitem">
+                                                                    <span data-is-focusable="true" class="checkBox" aria-label="Пометить как завершенные" role="checkbox" 
+                                                                        aria-checked="false" tabindex="-1"  (click)="taskIsCompleted(item)">
                                                                         <img class="TaskIconTrue" src="assets/icons/circle_selected.png" alt="">
                                                                     </span>
-                                                                    <button class="TaskItemtitleWrapper">
-                                                                        <span class="taskItemTitle">
-                                                                            <span>
+                                                                    <ng-container *ngIf="editingTaskId !== item.task_id; else editMode">
+                                                                        <button class="TaskItemtitleWrapper">
+                                                                            <span class="taskItemTitle">
                                                                                 <span>
-                                                                                    {{item.taskName}}
+                                                                                    <span>
+                                                                                        {{item.taskName}}
+                                                                                    </span>
                                                                                 </span>
                                                                             </span>
-                                                                        </span>
-                                                                        <div class="metaDataInfo">
-                                                                            <span class="metaDataInfo-group">
-                                                                                <span class="taskItemInfo-title">
-                                                                                    <span>{{selectedItem?.label}}</span>
+                                                                            <div class="metaDataInfo">
+                                                                                <span class="metaDataInfo-group">
+                                                                                    <span class="taskItemInfo-title">
+                                                                                        <span>{{selectedItem ? selectedItem.label : selectedCategory ? selectedCategory.category_name:''}}</span>
+                                                                                    </span>
                                                                                 </span>
-                                                                            </span>
-                                                                        </div>
-                                                                    </button>
+                                                                                <ng-container *ngIf="selectedItem?.id === 3">
+                                                                                    <span class="dataTime">
+                                                                                        {{ getFormattedDate(item.dataTimeToCompleteTask) }}
+                                                                                    </span>
+                                                                                </ng-container>
+                                                                            </div>
+                                                                        </button>
+                                                                    </ng-container>
+                                                                    <ng-template #editMode>
+                                                                        <input class="taskEditInput" type="text" [(ngModel)]="item.taskName" (keyup.enter)="saveTaskChanges(item)" />
+                                                                      </ng-template>
                                                                     <div>
                                                                         <div class="taskItem-body">
-                                                                            <span class="importanceButton" role="checkbox" aria-checked="false" aria-label="favorite Task" (click)="taskIsFavorite(item)">
+                                                                            <span class="importanceButton" role="checkbox" aria-checked="false" 
+                                                                                aria-label="favorite Task" (click)="taskIsFavorite(item)">
                                                                                 <ng-container *ngIf="item.favorite; else notFavorite">
                                                                                     <img class="TaskIconFavorite" src="assets/icons/round-star.png" alt="">
                                                                                 </ng-container>
@@ -192,6 +229,11 @@
                                                     </div>
                                                 </ng-container>
                                             </div>
+                                            <div *ngIf="contextMenuVisible" [style.top.px]="contextMenuPosition.top" 
+                                            [style.left.px]="contextMenuPosition.left" class="context-menu" #contextMenu>
+                                                <div class="editTaskMenu" (click)="editTask(contextMenuItem)">Edit</div>
+                                                <div class="deleteTaskMenu" (click)="deleteTask(contextMenuItem)">Delete</div>
+                                            </div>                                      
                                         </div>
                                     </div>
                                 </div>

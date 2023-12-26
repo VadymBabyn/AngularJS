@@ -16,11 +16,13 @@ body
     height: 100vh;
     position: relative;
 }
+
 #leftBar
 {
     display: flex;
     position: relative;
 }
+
 #app
 {
     display: flex;
@@ -31,6 +33,7 @@ body
     overflow: hidden;
     position: relative;
 }
+
 #insideContainer
 {
     flex: 1 1 0px;
@@ -41,9 +44,11 @@ body
 
     transition: background-color 0.3s;
 }
+
 .hidden {
     transform: translateX(-100%); 
 }
+
 #under-menu-icon-btn
 {
     position: relative;
@@ -60,27 +65,31 @@ body
     border-width:0px;
     z-index: 0;
 }
+
 #under-menu-icon-btn:hover{
     background-color: rgb(82, 82, 82);
 }
+
 #under-menu-icon-btn img{
-    margin-top: 2px;
+    margin-bottom: 3px;
     position: relative;
     width: 15px;
     height: 15px;
 }
+
 #sort-btn{
     background-color: #474747;
     width: 50px;
     height: 30px;
-    /* border-width:0px; */
 }
+
 #sort-icon-img
 {
     position: flex;
     width: 25px;
     height: 25px;
 }
+
 #TaskToolBar
 {
     margin-left: 24px;
@@ -93,6 +102,7 @@ body
     margin-top: 16px;
     margin-bottom: 16px;
 }
+
 #TaskToolBar-Top
 {
     display: flex;
@@ -102,6 +112,7 @@ body
     justify-content: center;
     height: 48px;
 }
+
 #TaskToolBar-headline
 {
     display: block;
@@ -110,6 +121,7 @@ body
     min-width: 100px;
     flex: 1 1 0px;
 }
+
 #TaskToolBar-right
 {
     margin-top: 20px;
@@ -117,16 +129,19 @@ body
     /* margin: 0; */
     display: flex;
 }
+
 #TaskToolBar-subline
 {
     font-weight: 200;
     padding: 0 10px;
 }
+
 #TaskToolBar-titleContainer
 {
     align-items: center;
     display: flex;
 }
+
 #listTitle
 {
     align-items: center;
@@ -142,11 +157,13 @@ body
     margin-bottom: 0px;
     padding: 6px 8px;
 }
+
 #app .addToTop
 {
     margin-left: 24px;
     margin-right: 24px;
 }
+
 #TaskCreator
 {
     overflow: hidden;
@@ -155,6 +172,7 @@ body
     flex-direction: column;
     border-radius: 4px;
 }
+
 #app .baseAddTask
 {
     padding: 0px 16px;
@@ -165,6 +183,7 @@ body
     display: flex;
     align-items: center;
 }
+
 #snowflake-imgBody
 {
     
@@ -173,6 +192,7 @@ body
     height: 24px;
     margin-right: 8px;
 }
+
 #todayDataHint
 {
     font-size: 0.8rem;
@@ -184,6 +204,7 @@ body
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 #TaskToolBar-action
 {
     display: flex;
@@ -191,12 +212,13 @@ body
     flex: 1 1 auto;
     align-self: flex-end;
 }
+
 #AddinputTaskCreation
 {
     background-color: black;
     color:white;
-
 }
+
 #app .TaskCreator
 {
     overflow: hidden;
@@ -208,6 +230,7 @@ body
     background-color: #fff;
     background-color: var(--bg-primary);
 }
+
 #mainBackGround
 {
     overflow: hidden;
@@ -216,6 +239,7 @@ body
     flex-direction: column;
     flex: 1 1 0px;
 }
+
 #app .flex-container
 {
     position: relative;
@@ -224,6 +248,7 @@ body
     overflow: hidden;
     flex-direction: column;
 }
+
 #app .AddinputTaskCreation
 {
     font-size: 1.4rem;
@@ -240,6 +265,7 @@ body
     background-color: #555555;
     user-select: text;
 }
+
 #app .baseAddIcon
 {
     flex-shrink: 0;
@@ -251,6 +277,7 @@ body
     border: none;
     box-shadow: none;
 }
+
 #app .inside-input-icon
 {
     cursor:default;
@@ -259,6 +286,7 @@ body
     margin-right: 5px;
     filter: grayscale(100%) invert(80%);
 }
+
 #app .baseAddEntered
 {
     height: 44px;
@@ -273,6 +301,7 @@ body
     flex-shrink: 0;
     align-items: center;
 }
+
 #app .dateButton
 {
     background: none;
@@ -287,6 +316,7 @@ body
     margin-left:2px;
     display: flex;
 }
+
 #app .baseAddBtn
 {
     border: solid 1px #a3a3a3;
@@ -304,6 +334,7 @@ body
     border-radius: 4px;
     color:white;
 }
+
 #app .taskCreation-entrybar
 {
     display: flex;
@@ -311,21 +342,25 @@ body
     flex-wrap: nowrap;
     overflow-x: auto;
 }
+
 #app .Tasks
 {
     overflow: hidden;
     display: flex;
     z-index: 1;
 }
+
 #app .focusWrapped
 {
     width: 100%;
 }
+
 #app .chunkedComponentList
 {
     display: flex;
     flex: 1;
 }
+
 #app .chunkedScrollContained
 {
     position: relative;
@@ -335,6 +370,7 @@ body
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
+
 #app .componentList
 {
     padding-top: 4px;
@@ -343,12 +379,14 @@ body
     margin-right: 16px;
     
 }
+
 #app .taskItem
 {
     display: flex;
     flex-direction: column;
     animation: slideFadeDown 250ms forwards;
 }
+
 #app .taskItem-body
 {
     background: #333333;
@@ -364,6 +402,7 @@ body
     word-break: break-word;
     flex-wrap: wrap;
 }
+
 #app .checkBox
 {
     padding: 0px;
@@ -375,12 +414,14 @@ body
     align-items: center;
     justify-content: center;
 }
+
 #app .TaskIcon
 {
     width: 20px;
     height: 20px;
     filter: grayscale(100%) invert(80%);
 }
+
 #app .taskItemTitle
 {
     color: white;
@@ -389,6 +430,7 @@ body
     text-decoration: none;
     line-height: 2rem;
 }
+
 #app .metaDataInfo
 {
     display: flex;
@@ -398,12 +440,14 @@ body
     color: #797775;
     flex-wrap: wrap;
 }
+
 #app .metaDataInfo-group
 {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
 }
+
 #app .taskItemInfo-title
 {
     max-width: 200px;
@@ -411,6 +455,7 @@ body
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 #app .TaskItemtitleWrapper
 {
     text-align: left;
@@ -430,6 +475,7 @@ body
     border: none;
     box-shadow: none;
 }
+
 #app .importanceButton
 {
     padding: 0px;
@@ -441,18 +487,21 @@ body
     flex-direction: column;
     justify-content: center;
 }
+
 #app .TaskIconFavorite
 {
     filter: grayscale(100%) invert(100%);
     width: 20px;
     height: 20px;
 }
+
 #app .TaskIcon-calendar
 {
     filter: grayscale(100%) invert(80%);
     width: 20px;
     height: 20px;
 }
+
 #app .TaskColapsed
 {
     display: flex;
@@ -462,6 +511,7 @@ body
     box-shadow: none;
     overflow: hidden;
 }
+
 #app .TaskCardHeader
 {
     cursor: pointer;
@@ -471,6 +521,7 @@ body
     align-items: center;
     min-height: 52px;
 }
+
 #app .TaskCardHeader-action
 {
     display: flex;
@@ -480,12 +531,14 @@ body
     width: 32px;
     height: 32px;
 }
+
 #app .TaskCard-labels
 {
     display: flex;
     align-items: baseline;
     padding: 8px 8px;
 }
+
 #app .openCloseArrow
 {
     line-height: 0px;
@@ -503,17 +556,20 @@ body
     border: none;
     box-shadow: none;
 }
+
 #app .imgRotation
 {
     filter: grayscale(100%) invert(80%);
     width: 20px;
     height: 20px;
 }
+
 #app .taskCard-label
 {
     font-size: 0.9rem;
     color:white;
 }
+
 #app .taskCard-sublabel
 {
     margin-left: 0.85em;
@@ -521,9 +577,96 @@ body
     font-size: 0.9rem;
     color: white;
 }
+
 #app .TaskIconTrue
 {
     filter: grayscale(100%) invert(80%);
     width: 28px;
     height: 28px;
 }
+
+.context-menu {
+    position: fixed;
+    z-index: 1000;
+    background-color: #424242;
+    border: 1px solid #070707;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .context-menu div {
+    padding: 8px 12px;
+  }
+  .selected {
+    border: solid 1px #7be85c;
+    width: auto;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: right;
+    cursor: pointer;
+    position: absolute;
+    position: relative;
+    background-color: #4a4545;
+    padding: 0 8px;
+    height: 32px;
+    margin-left: 4px;
+    border-radius: 4px;
+    color:rgb(216, 216, 216);
+  }
+  .context-menu div:hover {
+    background-color: #f0f0f0;
+  }
+  .deleteTaskMenu
+  {
+    color:red;
+  }
+  .editTaskMenu
+  {
+    color: white;
+  }
+  .taskEditInput
+  {
+    margin-left: 10px;
+    flex: 1 1 0px;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(53, 53, 53);
+    color:white;
+    border-radius: 6px;
+  }
+  .baseAddBtnData
+  {
+    
+    border: solid 1px #a3a3a3;
+    width: auto;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: right;
+    cursor: pointer;
+    position: absolute;
+    position: relative;
+    background-color: #393939;
+    padding: 0 8px;
+    height: 32px;
+    margin-left: 4px;
+    border-radius: 4px;
+    color:rgb(216, 216, 216);
+  }
+  .form-control
+  {
+    margin-left: 8px;
+    width: 250px;
+    height: 80%;
+  }
+  .input-group
+  {
+    width: 250px;
+    height: 80%;
+  }
+  .dataTime
+  {
+    margin-left:5px;
+  }
+ 
+  

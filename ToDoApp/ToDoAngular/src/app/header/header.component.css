@@ -25,29 +25,46 @@ body, html {
     cursor: pointer;
     font-size: large;
   }
+
   #search-container {
     display: flex;
     align-items: center;
     background-color: #363636;
   }
+  
   #search-button {
+    position: relative;
+   
+    box-shadow: none;
+    padding-block: 0px;
+    border-width:0px;
+    z-index: 0;
     display: flex;
     align-items: center;
-    margin-left: 15px;
+    margin-left: -50px;
     height: 100%;
     width: 48px;
-    background-color: #363636;
+    background-color: #36363600;
     cursor: pointer;
   }
+  
+  #search-icon-img
+  {
+    height:19px;
+    width: 19px;
+  }
+  
   #profile-button {
     display: flex;
     align-items: stretch;
     color: #000;
     margin-left: 15px;
     height: 35px;
+    border-radius: 10px;
     background-color: #363636;
     cursor: pointer;
   }
+  
   #profile-icon-img
   {
     display: flex;
@@ -55,6 +72,7 @@ body, html {
     max-width: 100%; 
     filter: grayscale(100%) invert(100%);
   }
+  
   #search-container input {
     height: 32px;
     background-color: #363636;
@@ -64,12 +82,14 @@ body, html {
     margin-right: 10px; 
     font-size:18px;
   }
+  
   #todo {
-    cursor: pointer;
+    cursor: default;
     background-color: #363636;
     transition: text-decoration 0.5s; 
     margin-right: 300px;
   }
+  
   #todo:hover {
     text-decoration: underline;
   }
@@ -77,22 +97,26 @@ body, html {
   #header div {
     margin: 0; 
   }
+  
   .modal {
     display: contents;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  
   .modal-container {
     display: contents;
     align-items: center;
     justify-content: center;
     height: 100vh; /* Розмір екрану по вертикалі */
   }
+  
   .modal-title
   {
     color:#000;
   }
+  
   .modal-header {
     padding: 1rem;
     border-bottom: 1px solid #dee2e6;
@@ -111,7 +135,6 @@ body, html {
     cursor: pointer;
   }
   
-  /* Modal Body */
   .modal-body {
     padding: 1rem;
   }
@@ -137,7 +160,6 @@ body, html {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
   
-  /* Primary Button */
   .btn-primary {
     color: #fff;
     background-color: #007bff;
@@ -150,7 +172,6 @@ body, html {
     border-color: #0056b3;
   }
   
-  /* Secondary Button */
   .btn-secondary {
     color: #fff;
     background-color: #6c757d;
@@ -162,3 +183,19 @@ body, html {
     background-color: #545b62;
     border-color: #4e555b;
   }
+  .alert {
+    margin-top: 10px;
+  }
+  
+  .alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+  
+  .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+  

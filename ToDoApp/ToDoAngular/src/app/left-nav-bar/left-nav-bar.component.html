@@ -16,8 +16,38 @@
           </div>
         </li>
       </ul>
+      <div class="line"></div>
+      <div class="add-category">
+        <button (click)="AddNewCategory()" class="baseAddIcon" type ="button">
+          <img class ="inside-input-icon" src="assets/icons/plus_icon.png" alt="">
+        </button>
+        <span>
+        </span>
+        <input (keyup.enter)="AddNewCategory()" [(ngModel)]="categoryName" class="inputCategoryCreation" type="text" 
+        maxlength="25" tabindex="0" autocomplete="off" placeholder="Add Category">
+      </div>
+      <ul >
+        <li *ngFor="let item of category" (contextmenu)="showContextMenu($event, item)" (click)="selectCategory(item)" [class.selected]="item === selectedCategory" id="item.idLi">
+          <div  id="mydaydiv">
+            <div id="snowflake-div">
+              <img id="snowflake-img" src="assets/icons/snowflake.png" alt="menu">
+            </div>
+            <ng-container *ngIf="editingCategoryId !== item.category_id; else editMode">
+              <div id="text-myDay-div">
+                <span>{{ item.category_name }}</span>
+              </div>   
+            </ng-container> 
+            <ng-template #editMode>
+              <input class="CategoryEditInput" type="text" [(ngModel)]="item.category_name" (keyup.enter)="saveTaskChanges(item)" />
+            </ng-template>
+          </div>
+        </li>
+      </ul>
     </nav>
   </div>
-  <!-- Основний контент або router-outlet -->
+  <div *ngIf="contextMenuVisible" [style.top.px]="contextMenuPosition.top" [style.left.px]="contextMenuPosition.left" class="context-menu" #contextMenu>
+    <div class="editTaskMenu" (click)="editTask(contextMenuItem)">Edit</div>
+    <div class="deleteTaskMenu" (click)="deleteCategory(contextMenuItem)">Delete</div>
+  </div>
   <router-outlet></router-outlet>
   

@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { FilterTasksPipe } from './pipe/filter-tasks.pipe';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     HeaderComponent,
     LeftNavBarComponent,
     BodyComponent,
-    FilterTasksPipe
+    FilterTasksPipe,
   ],
   imports: [
     HttpClientModule,
@@ -26,7 +28,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppRoutingModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    [BsDatepickerModule.forRoot(), TimepickerModule.forRoot()],
   ],
   providers: [LeftNavBarService],
   bootstrap: [AppComponent]

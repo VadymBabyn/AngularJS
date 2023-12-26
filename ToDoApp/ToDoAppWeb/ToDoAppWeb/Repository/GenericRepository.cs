@@ -31,12 +31,12 @@ namespace ToDoAppWeb.Repository
         {
             return _dbSet;
         }
-
+    
         public IQueryable<T> GetByCondition(Expression<Func<T, bool>> expression)
         {
             return _dbSet.Where(expression);
         }
-
+      
         public void Add(T entity)
         {
             _dbSet.Add(entity);

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Routing;
 
 using ToDoAppWeb.Repository;
 using ToDoAppWeb.Service;
+using ToDoAppWeb.Model;
 
 namespace ToDoAppWeb
 {
@@ -32,15 +33,22 @@ namespace ToDoAppWeb
                               .AllowAnyMethod()
                               .AllowAnyHeader());
             });
+            
             services.AddControllers();
 
             services.AddDbContext<AppDbContext>(options =>
                 options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
             
-            services.AddScoped<TaskRepository>();
+            services.AddScoped<GenericRepository<categoryTable>>();
             services.AddScoped<GenericRepository<Model.Task>>();
-            //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            
+            services.AddScoped<CategoryRepository>();
+            services.AddScoped<TaskRepository>();
+            services.AddScoped<UserRepository>();
+            
+            services.AddScoped<CategoryService>();
             services.AddScoped<TaskService>();
+            services.AddScoped<UserService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

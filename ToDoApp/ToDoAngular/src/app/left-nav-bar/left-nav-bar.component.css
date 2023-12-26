@@ -14,9 +14,11 @@
     transition: transform 0.3s ease; 
     z-index: 1;
   }
+
   .hidden {
     transform: translateX(-100%); 
   }
+  
   ul {
     list-style-type: none;
     padding: 0;
@@ -29,9 +31,11 @@
     display: list-item;
     text-align: -webkit-match-parent;
   }
+  
   li:hover{
     background-color: #4e4e4e;
   }
+  
   #mydaydiv
   {
     cursor: pointer;
@@ -42,6 +46,7 @@
     align-items: center;
     flex-direction: row;
   }
+  
   #text-myDay-div
   {
     margin-left:15px;
@@ -54,16 +59,18 @@
     width: 20px;
     height: 20px;
   }
+  
   .selected {
     background-color: #585858; 
     color: white;
   }
+  
   #menu-icon-btn {
     position: relative;
     cursor: pointer;
     align-items: center;
     margin-left: 22px;
-    margin-top: 30px;  
+    margin-top: 27px;  
     width: 30px;
     height: 30px;
     background-color: #474747;
@@ -71,14 +78,94 @@
     padding-block: 0px;
     border-width:0px;
   }
+  
   #menu-icon-btn:hover{
     background-color: rgb(82, 82, 82);
   }
   
   #menu-icon-btn img{
-    margin-top: 2px;
+    margin-bottom: 4px;
     width: 15px;
     height: 15px;
   }
-
   
+  .line {
+    border-top: 2px solid #3a3a3a; /* Колір та стиль лінії можна налаштувати */
+    margin-top: 20px; /* Встановіть відповідний відступ */
+  }
+  
+  .add-category {
+    margin-top: 8px;
+    padding: 0px 16px;
+    min-height: 52px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .baseAddIcon
+  {
+    flex-shrink: 0;
+    flex-basis: 0;
+    cursor: pointer;
+    background: none;
+    width: 100%;
+    height: 100%;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .inside-input-icon
+  {
+    cursor:pointer;
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+    filter: grayscale(100%) invert(80%);
+  }
+
+  .inputCategoryCreation
+  {
+  background-color: rgb(53, 53, 53);
+  color:white;
+  border-radius: 6px;
+  }
+
+.context-menu {
+  position: fixed;
+  z-index: 1000;
+  background-color: #424242;
+  border: 1px solid #070707;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.context-menu div {
+  padding: 8px 12px;
+}
+
+.context-menu div:hover {
+  background-color: #f0f0f0;
+}
+
+.deleteTaskMenu
+{
+  color:red;
+}
+
+.editTaskMenu
+{
+  color: white;
+}
+
+.CategoryEditInput
+{
+  margin-left:10px;
+  width: 198px;
+  background-color: rgb(53, 53, 53);
+  color:white;
+  border-radius: 6px;
+}

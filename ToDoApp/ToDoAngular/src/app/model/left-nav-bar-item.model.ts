@@ -1,6 +1,6 @@
 export interface LeftNavBarItemLi {
     id: number;
     label: string; 
-    idLi: string
+    idLi: string;
     imgsrc: string;
   }

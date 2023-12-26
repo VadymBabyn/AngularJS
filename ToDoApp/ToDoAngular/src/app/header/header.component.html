@@ -1,14 +1,14 @@
   <div id="header" role = "banner">
     <div id="todo">To Do</div>
     <div id="search-container">
-      <input id="search-field" type="text" placeholder="Пошук">
+      <input [(ngModel)]="TakeSearch" (input)="onSearchChange(TakeSearch)" id="search-field" type="text" placeholder="Search">
       <button id="search-button" (click)="performSearch()"> 
-        <img id="search-icon-img" src="assets/icons/search-icon.png" alt="Пошук">
+        <img id="search-icon-img" src="assets/icons/cancel_close.png" alt="Пошук">
       </button>
     </div>
-    <button id="profile-button" (click)="openModal(authModalTemplate)" [routerLink]="['#authModal']"> 
-     <img id="profile-icon-img" src="assets/icons/ui_user_profile.png" alt="Profile">  
-    </button>
+    <button id="profile-button" (click)="openModal(authModalTemplate)">
+      <img id="profile-icon-img" src="assets/icons/ui_user_profile.png" alt="Profile">  
+    </button>    
   </div>
   <ng-template #authModalTemplate>
     <div class="modal-container">
@@ -17,24 +17,37 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="authModalLabel">Log in or Register</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button (click)="closeAuthModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
               <!-- Форма для входу або реєстрації -->
-              <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" id="authForm">
+              <form #authForm="ngForm" id="authForm">
                 <div class="form-group">
                   <label for="loginInput">Log in</label>
-                  <input type="text" class="form-control" id="loginInput" placeholder="Введіть логін">
+                  <input type="text" class="form-control" name="username" id="loginInput" placeholder="Enter Login" ngModel required>
                 </div>
                 <div class="form-group">
                   <label for="passwordInput">Password</label>
-                  <input type="password" class="form-control" id="passwordInput" placeholder="Введіть пароль">
+                  <input type="password" class="form-control" name="password" id="passwordInput" placeholder="Enter password" ngModel required>
                 </div>
-                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Log in</button>
-                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Register</button>
+                <button (click)="onSubmit(authForm)" class="btn btn-primary" data-bs-dismiss="modal">Log in</button>
+                <button (click)="OnRegister(authForm)" class="btn btn-secondary" data-bs-dismiss="modal">Register</button>
               </form>
+              <div *ngIf="loginSuccess&&!registerSuccess" class="alert alert-success">
+                {{ errorMessage }}
+              </div>
+              <div *ngIf="loginError&&!registerError" class="alert alert-danger">
+                {{ errorMessage }}
+              </div>
+              
+              <div *ngIf="registerSuccess&&!loginSuccess" class="alert alert-success">
+                {{ errorMessage }}
+              </div>
+              <div *ngIf="registerError&&!loginError" class="alert alert-danger">
+                {{ errorMessage }}
+              </div>
             </div>
           </div>
         </div>
