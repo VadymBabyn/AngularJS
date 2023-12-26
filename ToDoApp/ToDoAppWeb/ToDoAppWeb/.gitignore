@@ -175,11 +175,10 @@ $RECYCLE.BIN/
 # JetBrains Rider
 .idea/
 
-# Ігнорувати всі папки та файли в папці "obj"
-obj/
+
 
 # Ігнорувати всі папки та файли в папці "ToDoAppWeb/obj"
-ToDoAppWeb/obj/
+obj/
 
 # Ігнорувати всі файли бінарного виводу в папці "ToDoAppWeb/ToDoAppWeb/bin"
-ToDoAppWeb/ToDoAppWeb/bin/
+bin/

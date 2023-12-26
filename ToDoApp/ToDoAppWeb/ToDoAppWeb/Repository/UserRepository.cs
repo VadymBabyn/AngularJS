@@ -17,7 +17,7 @@ namespace ToDoAppWeb.Repository
             if (_dbContext.root_table.Any(u => u.user_login == login))
             {
                 // Користувач із вказаним логіном вже існує
-                return -1; // або інший код, що вказує на конфлікт
+                return -1; 
             }
 
             // Створення нового користувача
@@ -47,7 +47,7 @@ namespace ToDoAppWeb.Repository
                 return user.username_id;
             }
 
-            // Повернення -1 або іншого значення, яке вказує на помилку автентифікації
+            // Повернення -1, яке вказує на помилку автентифікації
             return -1;
         }
     }

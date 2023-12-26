@@ -17,20 +17,22 @@ namespace ToDoAppWeb.Controller
         {
             _taskService = taskService;
         }
+
         [HttpGet("{userID}")]
         public IActionResult Get(int userID)
         {
             IQueryable<Model.Task> tasksList = _taskService.getAllTaskByIdUser(userID);        
             return Ok(tasksList);                           
         }
+        
         [HttpPost]
         public IActionResult Post(Model.Task taskName)
         {
             
             _taskService.addTask(taskName.taskName, taskName.dataTimeCreateTask, taskName.root_table_username_id, taskName.favorite, taskName.category_category_id,taskName.dataTimeToCompleteTask);           
-            
             return Ok(200);
         }
+        
         [HttpPut("{taskId}")]
         public IActionResult Put(int taskId, Model.Task taskName)
         {
@@ -44,6 +46,7 @@ namespace ToDoAppWeb.Controller
                 return BadRequest($"Failed to update task: {ex.Message}");
             }
         }
+        
         [HttpDelete("{taskId}")]
         public IActionResult DeleteTask(int taskId)
         {
