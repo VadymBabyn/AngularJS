@@ -14,6 +14,17 @@ namespace ToDoAppWeb.Service
             _taskRepository = taskRepository;
         }
 
+        public void addTask(string TaskName, DateTime CreateTask, int user_id,bool favorite, int category_Id)
+        {
+            Model.Task task = new Model.Task();
+            task.taskName = TaskName;
+            task.dataTimeCreateTask = CreateTask;
+            task.root_table_username_id = user_id;
+            task.favorite = favorite;
+            task.category_category_id = category_Id;
+            _taskRepositoryGeneric.Add(task);
+            _taskRepositoryGeneric.Save();
+        }
         public void addTask(string TaskName, DateTime CreateTask, int user_id, bool favorite, int category_Id, DateTime dataTimeToCompleteTask)
         {
             Model.Task task = new Model.Task();

@@ -17,21 +17,18 @@ namespace ToDoAppWeb.Controller
         {
             _categoryService = categoryService;
         }
-
         [HttpGet("{userID}")]
         public IActionResult Get(int userID)
         {
             IQueryable<categoryTable> CategoryList = _categoryService.getCategoryByUserId(userID);
             return Ok(CategoryList);
         }
-
         [HttpPost]
         public IActionResult Post(categoryTable category)
         {
             _categoryService.addCategory(category.category_name, category.root_table_username_id);
             return Ok(200);
         }
-
         [HttpDelete("{categoryId}")]
         public IActionResult DeleteCategory(int categoryId)
         {
@@ -45,7 +42,6 @@ namespace ToDoAppWeb.Controller
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-
         [HttpPut("{categoryId}")]
         public IActionResult Put(int categoryId, categoryTable CategoryUpdateModel)
         {
@@ -56,7 +52,7 @@ namespace ToDoAppWeb.Controller
             }
             catch (Exception ex)
             {
-                return BadRequest($"Failed to update category: {ex.Message}");
+                return BadRequest($"Failed to update task: {ex.Message}");
             }
         }
     }
