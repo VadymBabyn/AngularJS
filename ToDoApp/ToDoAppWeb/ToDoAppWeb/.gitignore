@@ -181,5 +181,7 @@ obj/
 # Ігнорувати всі папки та файли в папці "ToDoAppWeb/obj"
 ToDoAppWeb/obj/
 
+appsettings.json
+
 # Ігнорувати всі файли бінарного виводу в папці "ToDoAppWeb/ToDoAppWeb/bin"
 ToDoAppWeb/ToDoAppWeb/bin/
